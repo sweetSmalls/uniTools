@@ -1,0 +1,53 @@
+{
+	// ,{
+	// 	"pagePath":"pages/index/index",
+	// 	"iconPath":"static/assest/list.png",
+	// 	"selectedIconPath":"static/assest/listSel.png",
+	// 	"text":"类别"
+	// },{
+	// 	"pagePath":"pages/index/index",
+	// 	"iconPath":"static/assest/my.png",
+	// 	"selectedIconPath":"static/assest/mySel.png",
+	// 	"text":"我的"
+	// }
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+			"path": "pages/index/index",
+			"style": {
+				"navigationBarTitleText": "首页"
+			}
+		}
+	],
+	"globalStyle": {
+		"navigationBarTextStyle":"black",
+		"navigationBarBackgroundColor":"#FF6321",
+		"navigationBarTitleText":"首页",
+		"backgroundColor": "#F8F8F8"
+	},
+	"tabBar":{
+		
+		"color": "#7A7E83",
+		"selectedColor": "#FF6321",
+		"borderStyle": "black",
+		"backgroundColor": "#ffffff",
+		"height": "48px",
+		"fontSize": "10px",
+		"iconWidth": "20px",
+		"spacing": "3px",
+		"list":[{
+			"pagePath":"pages/index/index",
+			"iconPath":"static/assest/main.png",
+			"selectedIconPath":"static/assest/mainSel.png",
+			"text":"首页"
+		},
+		{
+			"pagePath":"pages/index/index",
+			"iconPath":"static/assest/list.png",
+			"selectedIconPath":"static/assest/listSel.png",
+			"text":"类别"
+		}]
+	},
+	"easycom": {
+	   "^u-(.*)": "@/uview-ui/components/u-$1/u-$1.vue"
+	 }
+}
