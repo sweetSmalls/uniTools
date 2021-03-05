@@ -208,7 +208,7 @@
 			width: 94%;
 			margin-left: 3%;
 			text{
-				font-size: 28rpx;
+				font-size: 30rpx;
 				font-weight: 600;
 			}
 			.hotDetails{
@@ -219,13 +219,12 @@
 				justify-content: space-between;
 				.detailine{
 					width: 30%;
-					height: 110rpx;
-					// margin-right: 40rpx;
 					border-radius: 12rpx;
+					height: 130rpx;
 					overflow: hidden;
 					.hotDetailImg{
 						width: 100%;
-						height: 110rpx;
+						height: 130rpx;
 					}
 				}
 			}
