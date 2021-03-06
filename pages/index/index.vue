@@ -1,11 +1,19 @@
 <template>
 	<view class="content">
+		<u-back-top 
+			:scrollTop="scrollTop" 
+			:mode="mode" 
+			:duration='200'
+			:icon-style="iconStyle"
+			:custom-style='customStyle'></u-back-top>
 		<!-- 轮播图组件 -->
 		<view class="swiperCon">
 			<u-swiper 
 			:list="list" 
 			:effect3d="true" 
 			duration="1000" 
+			height='300'
+			:title="true"
 			:autoplay='true' 
 			bg-color="#fff"></u-swiper>
 		</view>
@@ -19,15 +27,7 @@
 			</view>
 		</view>
 		<!-- 热搜 -->
-		<view class="hotPanel">
-			<view class="hotBox">
-				<view class="hotLeft">
-					<image :src="hotImage"></image>
-				</view>
-				<view class="hotRight">
-				</view>
-			</view>
-		</view>
+		<hot-panel></hot-panel>
 		<!-- 热门功能 -->
 		<view class="hotFunc">
 			<view class="hotFunBox">
@@ -40,7 +40,7 @@
 			</view>
 		</view>
 		<!-- 精品推荐 -->
-		<view class="hotFunc">
+		<view class="hotFunc positionBottom">
 			<view class="hotFunBox">
 				<text>精品推荐</text>
 				<view class="jingPinPanel">
@@ -48,9 +48,12 @@
 					<view class="boxTop">
 						<image src="https://cdn.uviewui.com/uview/swiper/1.jpg" class="topImage"></image>
 					</view>
-					<view class="boxTop">
+					<view class="newTops">
 						<view class="boxSmall">
 							<image src="https://cdn.uviewui.com/uview/swiper/2.jpg" class="topImage"></image>
+						</view>
+						<view class="boxSmall">
+							<image src="https://cdn.uviewui.com/uview/swiper/3.jpg" class="topImage"></image>
 						</view>
 						<view class="boxSmall">
 							<image src="https://cdn.uviewui.com/uview/swiper/3.jpg" class="topImage"></image>
@@ -62,28 +65,37 @@
 	</view>
 </template>
 <script>
-	import load from '../../loading/loading.vue';
+	import hotPanel from '@/components/hotPanel/hot.vue'
 	import { tableList } from './index.js'
 	export default {
 		name:'mainPage',
 		components:{
-			load
+			hotPanel
 		},
 		data() {
 			return {
+				scrollTop: 0,
+				mode: 'circle',
+				iconStyle: {
+					fontSize: '32rpx',
+					color: '#FFF'
+				},
+				customStyle:{
+					backgroundColor:'#FF6321'
+				},
 				hotImage:require('../../static/assest/hot.png'),
 				mainImage:'https://cdn.uviewui.com/uview/swiper/1.jpg',
 				list: [{
-						image: 'https://cdn.uviewui.com/uview/swiper/1.jpg',
-						title: '昨夜星辰昨夜风，画楼西畔桂堂东'
+						image: 'https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=371254519,2214554290&fm=26&gp=0.jpg',
+						title: '高山挡不住我的阔身板，大河拦不住我的风火轮。'
 					},
 					{
-						image: 'https://cdn.uviewui.com/uview/swiper/2.jpg',
-						title: '身无彩凤双飞翼，心有灵犀一点通'
+						image: 'https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=1287804773,4265994566&fm=26&gp=0.jpg',
+						title: '接受成长，也接受所有的不欢而散。'
 					},
 					{
-						image: 'https://cdn.uviewui.com/uview/swiper/3.jpg',
-						title: '谁念西风独自凉，萧萧黄叶闭疏窗，沉思往事立残阳'
+						image: 'https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1952205055,4277714259&fm=26&gp=0.jpg',
+						title: '一言网络，以传递更多的感动'
 					}
 				],
 				btnPanels:[
@@ -106,23 +118,46 @@
 					{
 						image:require('../../static/assest/music1.png'),
 						title:'音乐热评'
+					},
+					{
+						image:require('../../static/assest/xiao.png'),
+						title:'会心大笑'
+					},
+					{
+						image:require('../../static/assest/lishi.png'),
+						title:'历史今日'
+					},
+					{
+						image:require('../../static/assest/dog.png'),
+						title:'舔狗日记'
+					},
+					{
+						image:require('../../static/assest/yizhi.png'),
+						title:'益智解谜'
+					},
+					{
+						image:require('../../static/assest/fanyi.png'),
+						title:'AI翻译'
 					}
 				],
 				hotFunPanel:[
 					{
-						image: 'https://cdn.uviewui.com/uview/swiper/3.jpg',
+						image: 'https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3239432236,1435795891&fm=26&gp=0.jpg',
 						title: '第一张'
 					},
 					{
-						image: 'https://cdn.uviewui.com/uview/swiper/3.jpg',
+						image: 'https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=296155362,266518935&fm=15&gp=0.jpg',
 						title: '第二张'
 					},
 					{
-						image: 'https://cdn.uviewui.com/uview/swiper/3.jpg',
+						image: 'https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=859148189,1045198303&fm=26&gp=0.jpg',
 						title: '第三张'
 					}
 				]
 			}
+		},
+		onPageScroll(e) {
+			this.scrollTop = e.scrollTop;
 		},
 		onLoad() {
 			this.init()
@@ -145,23 +180,26 @@
 		margin:24rpx 0rpx;
 	}
 	.btnPanel{
+		margin-top: 40rpx;
 		width: 100%;
-		box-shadow: 0px 10px 36px 0px rgba(136, 83, 45, 0.1);
+		overflow: hidden;
+		background-color: white;
 		.linePanel{
 			display: flex;
 			flex-direction: row;
-			justify-content: space-between;
+			justify-content: space-around;
 			align-items: center;
-			width: 90%;
+			width: 100%;
 			overflow: hidden;
-			margin-left: 5%;
-			height: 200rpx;
+			flex-wrap: wrap;
 		}
 		.btnLine{
 			width: 18%;
 			height: 160rpx;
 			.imgInfo{
-				width: 100%;
+				box-shadow: 0px 10px 36px 0px rgba(136, 83, 45, 0.1);
+				width: 80%;
+				margin-left: 10%;
 				height: 100rpx;
 				border-radius: 8px;
 			}
@@ -175,7 +213,6 @@
 	.hotPanel{
 		width: 100%;
 		margin-top: 40rpx;
-	
 		.hotBox{
 			width: 94%;
 			margin-left: 3%;
@@ -183,6 +220,7 @@
 			height: 60rpx;
 			background-color: #fdf6e1;
 			display: flex;
+			
 			flex-direction: row;
 			align-items: center;
 			justify-content: space-between;
@@ -208,7 +246,7 @@
 			width: 94%;
 			margin-left: 3%;
 			text{
-				font-size: 30rpx;
+				font-size: 32rpx;
 				font-weight: 600;
 			}
 			.hotDetails{
@@ -218,13 +256,13 @@
 				flex-direction: row;
 				justify-content: space-between;
 				.detailine{
-					width: 30%;
+					width: 32%;
 					border-radius: 12rpx;
-					height: 130rpx;
+					height: 170rpx;
 					overflow: hidden;
 					.hotDetailImg{
 						width: 100%;
-						height: 130rpx;
+						height: 170rpx;
 					}
 				}
 			}
@@ -232,29 +270,40 @@
 	}
 	.jingPinPanel{
 		width: 100%;
-		height:500rpx;
 		.boxTop{
 			width: 100%;
-			height: 180rpx;
+			height: 220rpx;
 			margin-top: 30rpx;
-			display: flex;
 			border-radius: 12rpx;
-			overflow: hidden;
-			flex-direction: row;
-			align-items: center;
-			justify-content: space-between;
-			.boxSmall{
 				overflow: hidden;
-				border-radius: 12rpx;
-				width: 47%;
-				height: 180rpx;
+			.boxSmall{
+				width:100%;
+				height: 220rpx;
 			}
+		}
+	}
+	.newTops{
+		width: 100%;
+		display: flex;
+		margin-top: 30rpx;
+		border-radius: 12rpx;
+		overflow: hidden;
+		flex-direction: row;
+		align-items: center;
+		justify-content: space-between;
+		.boxSmall{
+			overflow: hidden;
+			border-radius: 12rpx;
+			width: 32%;
+			height: 250rpx;
 		}
 	}
 	.topImage{
 		width: 100%;
-		height: 180rpx;
+		height: 250rpx;
 	}
-	
+	.positionBottom{
+		margin-bottom: 120rpx;
+	}
 
 </style>

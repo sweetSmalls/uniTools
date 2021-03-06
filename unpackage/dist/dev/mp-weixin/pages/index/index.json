@@ -1,7 +1,8 @@
 {
   "navigationBarTitleText": "首页",
   "usingComponents": {
+    "u-back-top": "/uview-ui/components/u-back-top/u-back-top",
     "u-swiper": "/uview-ui/components/u-swiper/u-swiper",
-    "load": "/loading/loading"
+    "hot-panel": "/components/hotPanel/hot"
   }
 }

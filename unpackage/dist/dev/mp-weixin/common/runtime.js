@@ -105,11 +105,11 @@
 /******/
 /******/
 /******/ 		// mini-css-extract-plugin CSS loading
-/******/ 		var cssChunks = {"uview-ui/components/u-swiper/u-swiper":1,"uview-ui/components/u-loading/u-loading":1};
+/******/ 		var cssChunks = {"components/hotPanel/hot":1,"uview-ui/components/u-back-top/u-back-top":1,"uview-ui/components/u-swiper/u-swiper":1,"uview-ui/components/u-icon/u-icon":1};
 /******/ 		if(installedCssChunks[chunkId]) promises.push(installedCssChunks[chunkId]);
 /******/ 		else if(installedCssChunks[chunkId] !== 0 && cssChunks[chunkId]) {
 /******/ 			promises.push(installedCssChunks[chunkId] = new Promise(function(resolve, reject) {
-/******/ 				var href = "" + ({"loading/loading":"loading/loading","uview-ui/components/u-swiper/u-swiper":"uview-ui/components/u-swiper/u-swiper","uview-ui/components/u-loading/u-loading":"uview-ui/components/u-loading/u-loading"}[chunkId]||chunkId) + ".wxss";
+/******/ 				var href = "" + ({"components/hotPanel/hot":"components/hotPanel/hot","uview-ui/components/u-back-top/u-back-top":"uview-ui/components/u-back-top/u-back-top","uview-ui/components/u-swiper/u-swiper":"uview-ui/components/u-swiper/u-swiper","uview-ui/components/u-icon/u-icon":"uview-ui/components/u-icon/u-icon"}[chunkId]||chunkId) + ".wxss";
 /******/ 				var fullhref = __webpack_require__.p + href;
 /******/ 				var existingLinkTags = document.getElementsByTagName("link");
 /******/ 				for(var i = 0; i < existingLinkTags.length; i++) {
