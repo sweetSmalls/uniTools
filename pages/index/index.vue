@@ -1,11 +1,6 @@
 <template>
 	<view class="content">
-		<u-back-top 
-			:scrollTop="scrollTop" 
-			:mode="mode" 
-			:duration='200'
-			:icon-style="iconStyle"
-			:custom-style='customStyle'></u-back-top>
+		<scroll-info></scroll-info>
 		<!-- 轮播图组件 -->
 		<view class="swiperCon">
 			<u-swiper 
@@ -18,7 +13,7 @@
 			bg-color="#fff"></u-swiper>
 		</view>
 		<!-- 按钮列表组件 -->
-		<view class="btnPanel">
+		<view class="btnPanel  u-skeleton">
 			<view class="linePanel">
 				<view class="btnLine" v-for="(item,index) in btnPanels" :key='index'>
 					<image :src="item.image" class="imgInfo"></image>
@@ -27,7 +22,7 @@
 			</view>
 		</view>
 		<!-- 热搜 -->
-		<hot-panel></hot-panel>
+		<hot-panel :hotlist='hotlist'></hot-panel>
 		<!-- 热门功能 -->
 		<view class="hotFunc">
 			<view class="hotFunBox">
@@ -62,27 +57,24 @@
 				</view>
 			</view>
 		</view>
+		
 	</view>
 </template>
 <script>
+	import scrollInfo from '@/components/scrollPanel/index.vue'
 	import hotPanel from '@/components/hotPanel/hot.vue'
-	import { tableList } from './index.js'
+	import { tableList } from '@/util/api.js'
+	
 	export default {
 		name:'mainPage',
 		components:{
-			hotPanel
+			hotPanel,
+			scrollInfo
 		},
 		data() {
 			return {
-				scrollTop: 0,
-				mode: 'circle',
-				iconStyle: {
-					fontSize: '32rpx',
-					color: '#FFF'
-				},
-				customStyle:{
-					backgroundColor:'#FF6321'
-				},
+				hotlist:null, // 热搜列表
+				loading: true, // 是否显示骨架屏组件
 				hotImage:require('../../static/assest/hot.png'),
 				mainImage:'https://cdn.uviewui.com/uview/swiper/1.jpg',
 				list: [{
@@ -156,20 +148,15 @@
 				]
 			}
 		},
-		onPageScroll(e) {
-			this.scrollTop = e.scrollTop;
-		},
 		onLoad() {
 			this.init()
 		},
 		methods: {
+			// 获取热搜列表
 			async init(){
-				let froms ={
-					num:10,
-					page:1
-				}
-				let data = await tableList(froms);
-				console.log('数据展示',data)
+				let data = await tableList({});
+				this.hotlist = data.stories
+				console.log('数据展示',this.hotlist)
 			}
 		}
 	}

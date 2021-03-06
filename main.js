@@ -3,6 +3,7 @@ import App from './App'
 import uView from 'uview-ui'
 import httpSvc from './util/httpSvc.js'
 import store from './store/index.js'  // 引入数据管理
+import './style/default.css'
 Vue.use(uView)
 Vue.config.productionTip = false
 Vue.prototype.$store = store

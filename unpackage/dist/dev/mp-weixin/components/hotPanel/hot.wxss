@@ -59,7 +59,31 @@
   height: 40rpx;
 }
 .hotPanel .hotBox .hotRight.data-v-05ce57a0 {
-  width: 88%;
+  width: 90%;
   height: 60rpx;
+}
+.uni-swiper-msg-myflex.data-v-05ce57a0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+}
+.left-Iocn.data-v-05ce57a0 {
+  width: 40rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+}
+.limitp-hg.data-v-05ce57a0 {
+  width: calc(100% - 20rpx);
+  height: 60rpx;
+  line-height: 60rpx;
+}
+.scrool-list-item.data-v-05ce57a0 {
+  font-size: 28rpx;
+  width: 100%;
+  color: gray;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  word-break: break-all;
 }
 

@@ -1,0 +1,1 @@
+<view><u-back-top vue-id="222edeca-1" scrollTop="{{scrollTop}}" mode="{{mode}}" duration="{{200}}" icon-style="{{iconStyle}}" custom-style="{{customStyle}}" bind:__l="__l"></u-back-top></view>

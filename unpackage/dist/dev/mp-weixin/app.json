@@ -1,6 +1,7 @@
 {
   "pages": [
-    "pages/index/index"
+    "pages/index/index",
+    "pages/newList/index"
   ],
   "subPackages": [],
   "window": {
@@ -35,5 +36,5 @@
   },
   "permission": {},
   "usingComponents": {},
-  "sitemapLocation": "sitemap10.json"
+  "sitemapLocation": "sitemap17.json"
 }

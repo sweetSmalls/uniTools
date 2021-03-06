@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "u-back-top": "/uview-ui/components/u-back-top/u-back-top"
+  },
+  "component": true
+}
