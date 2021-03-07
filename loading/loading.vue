@@ -1,5 +1,5 @@
 <template>
-	<view class="loadCon">
+	<view class="loadCon" v-show="loadStatusInfo">
 		<u-loading 
 			mode="circle" 
 			:show="loadStatusInfo"

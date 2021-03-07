@@ -17,6 +17,12 @@
 			"style": {
 				"navigationBarTitleText": "毒鸡汤"
 			}
+		},
+		{
+			"path": "pages/Courier/index",
+			"style": {
+				"navigationBarTitleText": "快递查询"
+			}
 		}
 	],
 	"globalStyle": {
@@ -42,7 +48,7 @@
 			"text":"首页"
 		},
 		{
-			"pagePath":"pages/jitang/index",
+			"pagePath":"pages/Courier/index",
 			"iconPath":"static/assest/list.png",
 			"selectedIconPath":"static/assest/listSel.png",
 			"text":"类别"

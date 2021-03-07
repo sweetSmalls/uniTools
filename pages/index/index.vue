@@ -14,8 +14,8 @@
 		<!-- 按钮列表组件 -->
 		<view class="btnPanel  u-skeleton">
 			<view class="linePanel">
-				<view class="btnLine" v-for="(item,index) in btnPanels" :key='index'>
-					<image :src="item.image" class="imgInfo"></image>
+				<view class="btnLine" v-for="(item,index) in btnPanels" :key='index' @click='btnDetails(item)'>
+					<image :src="item.image" class="imgInfo" ></image>
 					<view class="imgText">{{item.title}}</view>
 				</view>
 			</view>
@@ -25,7 +25,7 @@
 		<!-- 热门功能 -->
 		<view class="hotFunc">
 			<view class="hotFunBox">
-				<text class="titleInfo">热门功能</text>
+				<text class="titleInfo" @tap="justin">热门功能</text>
 				<view class="hotDetails">
 					<view class="detailine" v-for="(item,index) in hotFunPanel" :key='index'>
 						<image :src="item.image" class="hotDetailImg"></image>
@@ -138,7 +138,7 @@
 					},
 					{
 						image:require('../../static/assest/fanyi.png'),
-						title:'AI翻译'
+						title:'土味情话'
 					}
 				],
 				hotFunPanel:[
@@ -167,18 +167,34 @@
 			
 		},
 		onShow(){
-			wx.showShareMenu({
-						  withShareTicket: true,
-						  menus: ['shareAppMessage', 'shareTimeline']
-						})
-			
+			// wx.showShareMenu({
+			// 	withShareTicket: true,
+			// })
 		},
 		methods: {
 			// 获取热搜列表
 			async init(){
 				let data = await tableList({});
 				this.hotlist = data.stories
-				console.log('数据展示',this.hotlist)
+			},
+			// 按钮跳转
+			btnDetails(params){
+				switch(params.title){
+					case '毒鸡汤':
+						uni.navigateTo({
+							url: '/pages/jitang/index?type='+params.title
+						});
+					break;
+					case '土味情话':
+						uni.navigateTo({
+							url: '/pages/jitang/index?type='+params.title
+						});
+					break;
+				}
+				
+			},
+			justin(){
+				alert(45)
 			}
 		}
 	}

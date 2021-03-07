@@ -1,9 +1,0 @@
-{
-  "navigationBarTitleText": "首页",
-  "usingComponents": {
-    "u-swiper": "/uview-ui/components/u-swiper/u-swiper",
-    "hot-panel": "/components/hotPanel/hot",
-    "scrolltop": "/components/scrollPanel/index",
-    "loading": "/loading/loading"
-  }
-}

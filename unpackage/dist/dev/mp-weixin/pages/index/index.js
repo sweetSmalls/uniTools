@@ -297,16 +297,15 @@ var _api = __webpack_require__(/*! @/util/api.js */ 50);function _interopRequire
     this.scrollTop = e.scrollTop;
   },
   onLoad: function onLoad() {
-    this.init();
+    // this.init()
   },
   onShareAppMessage: function onShareAppMessage() {
 
   },
   onShow: function onShow() {
-    wx.showShareMenu({
-      withShareTicket: true,
-      menus: ['shareAppMessage', 'shareTimeline'] });
-
+    // wx.showShareMenu({
+    // 	withShareTicket: true,
+    // })
 
   },
   methods: {
@@ -315,6 +314,13 @@ var _api = __webpack_require__(/*! @/util/api.js */ 50);function _interopRequire
                   (0, _api.tableList)({}));case 2:data = _context.sent;
                 _this.hotlist = data.stories;
                 console.log('数据展示', _this.hotlist);case 5:case "end":return _context.stop();}}}, _callee);}))();
+    },
+    // 按钮跳转
+    btnDetails: function btnDetails(params) {
+      console.log(params);
+    },
+    justin: function justin() {
+      alert(45);
     } } };exports.default = _default;
 
 /***/ }),

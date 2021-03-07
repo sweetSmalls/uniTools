@@ -1,37 +1,62 @@
 <template>
 	 <view class="SayPanel">
-	      <view class="containers">
+	      <view class="containers" v-show="type=='1'">
 	           <image :src="imgUrls" class="imgs"></image>
 	           <view class="cotents">
 	               <view class="tits">{{content}}</view>
 	           </view>
 	           <view class="nings">
 	               <view class="gos" style="background:#606075" @click="init">再来一口</view>
-	                <view class="gos"> <button class="infoTitle" open-type="share"> 分享土味情话</button></view>
+	                <view class="gos"> <button class="infoTitle" open-type="share"> 分享毒鸡汤</button></view>
 	           </view>
-	           
 	      </view>
+		  <view class="containers" v-show="type=='2'">
+		       <image :src="imgUrlInfo" class="imgs"></image>
+		       <view class="cotents">
+		           <view class="tits">{{content}}</view>
+		       </view>
+		       <view class="nings">
+		           <view class="gos" style="background:#606075" @click="init">再来一打</view>
+		            <view class="gos"> <button class="infoTitle" open-type="share"> 分享土味情话</button></view>
+		       </view>
+		  </view>
+		  <loading></loading>
 	  </view>
 </template>
 <script>
-	import { jiTangs } from '@/util/api.js'
+	import { jiTangs, qingHua } from '@/util/api.js'
+	import loading from '@/loading/loading.vue'
 	export default {
 		name:'jitang',
+		components:{
+			loading
+		},
 		data () {
 		    return {
 				content:'',
+				type:'1',
 		        imgUrls:require('../../static/assest/303.jpg'),
+				imgUrlInfo:require('../../static/assest/753.jpg')
 		    }
 		},
-		onLoad(){
-			this.init();
+		onLoad(option){
+			uni.setNavigationBarTitle({
+			    title:option.type
+			})
+			this.init(option);
 		},
 		methods:{
-			async init(){
-				let data = await jiTangs({});
-				this.content = data.content;
+			async init(params){
+				this.type = params.type === '毒鸡汤' ? '1' : '2';
+				
+				if(this.type == '1'){
+					let data = await jiTangs({});
+					this.content = data.content;
+				}else{
+					let data = await qingHua({});
+					this.content = data.content;
+				}
 			}
-			
 		}
 	}
 </script>

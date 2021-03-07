@@ -32,6 +32,7 @@ export function httpSvc(url,method,data,apiType){
 			},
 			// 失败调用
 			fail:(err)=>{
+				store.commit('loadHide',false)
 				uni.showModal({
 				    content:err,
 					showCancel:false
