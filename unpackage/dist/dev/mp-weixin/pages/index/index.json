@@ -3,6 +3,7 @@
   "usingComponents": {
     "u-swiper": "/uview-ui/components/u-swiper/u-swiper",
     "hot-panel": "/components/hotPanel/hot",
-    "scroll-info": "/components/scrollPanel/index"
+    "scrolltop": "/components/scrollPanel/index",
+    "loading": "/loading/loading"
   }
 }

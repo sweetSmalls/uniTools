@@ -1,19 +1,20 @@
 <template>
-	<view>
+	
+	<view >
 		<u-back-top
 			:scrollTop="scrollTop" 
 			:mode="mode" 
 			:duration='200'
 			:icon-style="iconStyle"
-			:custom-style='customStyle'></u-back-top>
+			:custom-style='customStyle'/>
 	</view>
 </template>
 <script>
 	export default {
 		name: 'scrolls',
+		props:['scrollTop'],
 		data () {
 			return {
-				scrollTop: 0,
 				mode: 'circle',
 				iconStyle: {
 					fontSize: '32rpx',
@@ -25,19 +26,12 @@
 			}
 		},
 		onLoad(){
-			console.log(888)
-			this.init()
-		},
-		onPageScroll(e) {
-			this.scrollTop = e.scrollTop;
 		},
 		methods:{
-			init(){
-				console.log(4545)
-			}
 		}
 	}
 </script>
 
-<style>
+<style lang="scss" >
+	
 </style>

@@ -4,15 +4,16 @@ Vue.use(Vuex) // 让vue使用vuex
 // 通过vuex构造函数创建store对象
 const store = new Vuex.Store({
 	state:{
-		loadingStaus:false   // 加载动画状态
-		
+		show:'111',
+		loadingStatus:false   // 加载动画状态
 	},
 	mutations:{
 		loadShow(state,params){
-			state.loadingStaus = params
+			console.log("展示",params)
+			state.loadingStatus = params
 		},
 		loadHide(state,params){
-			state.loadingStaus = params
+			state.loadingStatus = params
 		}
 	},
 	actions:{

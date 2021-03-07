@@ -4,7 +4,7 @@
 			<view class="hotBox">
 				<view class="hotLeft">
 					<image :src="hotImage"></image>
-				</view>
+				</view> 
 				<view class="hotRight">
 					<view class="uni-swiper-msg-myflex">
 						<swiper class="limitp-hg" vertical="true" autoplay="true" circular="true" interval="3000">
@@ -25,7 +25,7 @@
 		props:['hotlist'],
 		data () {
 			return {
-				hotImage:require('../../static/assest/hot.png'),
+				hotImage:require('../../static/assest/news.png'),
 				msg:[1,2,3,4,5,6,7,8,9,12,13]
 			}
 		},

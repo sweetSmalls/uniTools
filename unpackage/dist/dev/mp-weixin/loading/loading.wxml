@@ -1,0 +1,1 @@
+<view class="loadCon data-v-7a8b246a"><u-loading vue-id="d6d866ca-1" mode="circle" show="{{loadStatusInfo}}" size="68" color="#FF6321" class="data-v-7a8b246a" bind:__l="__l"></u-loading></view>

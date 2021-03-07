@@ -1,9 +1,9 @@
 <template>
-	<view>
+	<view class="loadCon">
 		<u-loading 
 			mode="circle" 
-			:show="loadStatus"
-			size="56"
+			:show="loadStatusInfo"
+			size="68"
 			color='#FF6321'
 		></u-loading>
 	</view>
@@ -11,26 +11,38 @@
 
 <script>
 	export default {
-		name: 'loading',
 		data () {
 			return {
 				show:true
 			}
 		},
 		computed:{
-			loadStatus(){
-				return this.$store.state.loadingStaus
+			loadStatusInfo(){
+				return this.$store.state.loadingStatus
 			}
-			
 		},
 		onLoad(){
-			
+			this.init()
 		},
 		methods: {
+			init(){
+				alert(121)
+			}
 			
 		}
 	}
 </script>
 
-<style>
+<style lang="scss" scoped>
+	.loadCon{
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: center;
+	}
 </style>

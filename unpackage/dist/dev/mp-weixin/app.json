@@ -1,7 +1,8 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/newList/index"
+    "pages/newList/index",
+    "pages/jitang/index"
   ],
   "subPackages": [],
   "window": {
@@ -27,7 +28,7 @@
         "text": "首页"
       },
       {
-        "pagePath": "pages/index/index",
+        "pagePath": "pages/jitang/index",
         "iconPath": "static/assest/list.png",
         "selectedIconPath": "static/assest/listSel.png",
         "text": "类别"
@@ -35,6 +36,5 @@
     ]
   },
   "permission": {},
-  "usingComponents": {},
-  "sitemapLocation": "sitemap17.json"
+  "usingComponents": {}
 }

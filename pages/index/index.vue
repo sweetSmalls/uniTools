@@ -1,6 +1,5 @@
 <template>
 	<view class="content">
-		<scroll-info></scroll-info>
 		<!-- 轮播图组件 -->
 		<view class="swiperCon">
 			<u-swiper 
@@ -26,7 +25,7 @@
 		<!-- 热门功能 -->
 		<view class="hotFunc">
 			<view class="hotFunBox">
-				<text>热门功能</text>
+				<text class="titleInfo">热门功能</text>
 				<view class="hotDetails">
 					<view class="detailine" v-for="(item,index) in hotFunPanel" :key='index'>
 						<image :src="item.image" class="hotDetailImg"></image>
@@ -37,9 +36,8 @@
 		<!-- 精品推荐 -->
 		<view class="hotFunc positionBottom">
 			<view class="hotFunBox">
-				<text>精品推荐</text>
+				<text class="titleInfo">精品推荐</text>
 				<view class="jingPinPanel">
-					<!-- 布局一大三小 -->
 					<view class="boxTop">
 						<image src="https://cdn.uviewui.com/uview/swiper/1.jpg" class="topImage"></image>
 					</view>
@@ -57,22 +55,33 @@
 				</view>
 			</view>
 		</view>
-		
+		<loading></loading>
+		<scrolltop :scrollTop='scrollTop'></scrolltop>
 	</view>
 </template>
 <script>
-	import scrollInfo from '@/components/scrollPanel/index.vue'
+	import scrolltop from '@/components/scrollPanel/index.vue'
 	import hotPanel from '@/components/hotPanel/hot.vue'
 	import { tableList } from '@/util/api.js'
-	
+	import loading from '@/loading/loading.vue'
 	export default {
 		name:'mainPage',
 		components:{
 			hotPanel,
-			scrollInfo
+			scrolltop,
+			loading
 		},
 		data() {
 			return {
+				scrollTop: 0,
+				mode: 'circle',
+				iconStyle: {
+					fontSize: '32rpx',
+					color: '#FFF'
+				},
+				customStyle:{
+					backgroundColor:'#FF6321'
+				},
 				hotlist:null, // 热搜列表
 				loading: true, // 是否显示骨架屏组件
 				hotImage:require('../../static/assest/hot.png'),
@@ -148,8 +157,21 @@
 				]
 			}
 		},
+		onPageScroll(e) {
+			this.scrollTop = e.scrollTop;
+		},
 		onLoad() {
 			this.init()
+		},
+		onShareAppMessage() {
+			
+		},
+		onShow(){
+			wx.showShareMenu({
+						  withShareTicket: true,
+						  menus: ['shareAppMessage', 'shareTimeline']
+						})
+			
 		},
 		methods: {
 			// 获取热搜列表
@@ -182,10 +204,10 @@
 		}
 		.btnLine{
 			width: 18%;
-			height: 160rpx;
 			.imgInfo{
 				box-shadow: 0px 10px 36px 0px rgba(136, 83, 45, 0.1);
 				width: 80%;
+				margin-top: 20rpx;
 				margin-left: 10%;
 				height: 100rpx;
 				border-radius: 8px;
@@ -194,6 +216,7 @@
 				width: 100%;
 				text-align: center;
 				color: gray;
+				font-size: 28rpx;
 			}
 		}
 	}
@@ -232,7 +255,7 @@
 		.hotFunBox{
 			width: 94%;
 			margin-left: 3%;
-			text{
+			.titleInfo{
 				font-size: 32rpx;
 				font-weight: 600;
 			}

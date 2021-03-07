@@ -1,10 +1,11 @@
+import store from '@/store/index.js'
+import Vue from 'vue'
 // 封装HTTP请求公共部分
 // url 请求地址
 // 请求方式
 // 参数信息
-import store from '../store/index.js'
 export function httpSvc(url,method,data,apiType){
-	let baseURL = apiType == '1' ? 'https://v1.alapi.cn/api' : 'https://v2.alapi.cn/api'
+	let baseURL = apiType == '1' ? 'https://v1.alapi.cn/api' : 'https://v2.alapi.cn/api';
 	store.commit('loadShow',true)
 	return new Promise((resolve,reject)=>{
 		uni.request({

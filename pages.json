@@ -11,6 +11,12 @@
 			"style": {
 				"navigationBarTitleText": "新闻详情"
 			}
+		},
+		{
+			"path": "pages/jitang/index",
+			"style": {
+				"navigationBarTitleText": "毒鸡汤"
+			}
 		}
 	],
 	"globalStyle": {
@@ -36,7 +42,7 @@
 			"text":"首页"
 		},
 		{
-			"pagePath":"pages/index/index",
+			"pagePath":"pages/jitang/index",
 			"iconPath":"static/assest/list.png",
 			"selectedIconPath":"static/assest/listSel.png",
 			"text":"类别"
