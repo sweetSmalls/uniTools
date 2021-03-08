@@ -23,6 +23,12 @@
 			"style": {
 				"navigationBarTitleText": "快递查询"
 			}
+		},
+		{
+			"path": "pages/laji/index",
+			"style": {
+				"navigationBarTitleText": "垃圾分类"
+			}
 		}
 	],
 	"globalStyle": {
@@ -48,7 +54,7 @@
 			"text":"首页"
 		},
 		{
-			"pagePath":"pages/Courier/index",
+			"pagePath":"pages/laji/index",
 			"iconPath":"static/assest/list.png",
 			"selectedIconPath":"static/assest/listSel.png",
 			"text":"类别"

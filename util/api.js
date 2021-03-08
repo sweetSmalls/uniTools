@@ -9,3 +9,5 @@ export const jiTangs = params =>httpSvc('/soul','POST',params,'2')
 export const qingHua = params => httpSvc('/qinghua','POST',params,'2')
 // 快递查询
 export const courier = params => httpSvc('/kd','POST',params,'2')
+// 垃圾分类
+export const laJi = params => httpSvc('/lajifenlei','POST',params,'1')
